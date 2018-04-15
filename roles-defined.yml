@@ -1,0 +1,6 @@
+---
+
+rolesDefined:
+  - my-test-role
+  - auxilary-role
+  - aws-alb-tg

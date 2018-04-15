@@ -1,0 +1,6 @@
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Deploy AWS alb
+      import_role:
+        name: aws-alb-tg
