@@ -2,7 +2,7 @@ properties([
   parameters([
     string(name: 'rolesToPlay', defaultValue: 'aws-alb-tg'),
     string(name: 'ansibleImage', defaultValue: 'unicanova/ansible:0.0.1-1'),
-    string(name: 'awsCredentials', defaultValue: 'aws-credentials-1'),
+    string(name: 'awsCredentials', defaultValue: 'AWS_ACCESS'),
   ])
 ])
 
@@ -10,7 +10,7 @@ properties([
 
 rolesToPlay = params.rolesToPlay.replaceAll("\\s","").split(',')
 
-node {
+node (label: 'docker-machine') {
   stage('Checkout') {
     checkout scm
   }
