@@ -2,6 +2,8 @@
 # vars file for aws-alb-tg
 
 aws_alb_tg_tg_name: test-target-group
+aws_alb_tg_tg_ws_name: test-target-group-ws
+
 aws_alb_tg_alb_name: test-alb-name
 aws_alb_tg_region: us-east-1
 aws_alb_tg_instance_name: unicanova
@@ -20,3 +22,8 @@ aws_alb_tg_alb_listeners:
     Certificates:
       - CertificateArn: "arn:aws:acm:us-east-1:329942816198:certificate/338d2752-79c7-4cb6-a022-eb2f0d558704"
     SslPolicy: ELBSecurityPolicy-2015-05
+
+aws_alb_tg_target_groups:
+  - name: "{{ aws_alb_tg_tg_name }}"
+  - name: "{{ aws_alb_tg_tg_ws_name }}"
+    stickiness_enabled: True
