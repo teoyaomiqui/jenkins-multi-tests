@@ -68,7 +68,8 @@ node (label: 'docker-machine') {
               credentialsId: params.awsCredentials, 
               accessKeyVariable: 'AWS_ACCESS_KEY_ID',
               secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                sh "cd modules/${mod} && terraform init && \
+                sh "cd modules/${mod} && cat main.tf && \
+                                         terraform init && \
                                          terraform plan && \
                                          terraform apply -auto-approve"
             }
