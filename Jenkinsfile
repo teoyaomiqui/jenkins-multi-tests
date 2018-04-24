@@ -4,7 +4,7 @@ properties([
     string(name: 'modulesToRun', defaultValue: 'aws-alb-tg'),
     string(name: 'ansibleImage', defaultValue: 'unicanova/ansible:0.0.1-1'),
     string(name: 'terraformImage', defaultValue: 'hashicorp/terraform:full'),
-    string(name: 'awsCredentials', defaultValue: 'AWS_ACCESS'),
+    string(name: 'awsCredentials', defaultValue: 'aws-credentials-1'),
     string(name: 'awsRegion', defaultValue: 'us-east-1'),
   ])
 ])
@@ -68,8 +68,7 @@ node (label: 'docker-machine') {
               credentialsId: params.awsCredentials, 
               accessKeyVariable: 'AWS_ACCESS_KEY_ID',
               secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                sh "cd modules/${mod} && cat main.tf && \
-                                         terraform init && \
+                sh "cd modules/${mod} && terraform init && \
                                          terraform plan && \
                                          terraform apply -auto-approve"
             }
