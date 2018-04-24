@@ -9,7 +9,7 @@ properties([
   ])
 ])
 
-// Form array of roles desired to be played to be played
+// Form arrays of roles and modules desired to be played to be played
 
 rolesToPlay = params.rolesToPlay.replaceAll("\\s","").split(',')
 modulesToRun = params.modulesToRun.replaceAll("\\s","").split(',')
